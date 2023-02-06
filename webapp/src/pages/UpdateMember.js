@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Button, Container, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchMemberById, fetchUpdateMember } from "../apis/Api";
+import {
+  fetchDeleteMember,
+  fetchMemberById,
+  fetchUpdateMember,
+} from "../apis/Api";
 
 function UpdateMember() {
   const navigate = useNavigate();
@@ -60,7 +64,17 @@ function UpdateMember() {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    console.log("delete");
+
+    const fetchDeleteApi = async (memberId) => {
+      const response = await fetchDeleteMember(memberId);
+      if (response.status >= 200 && response.status < 400) {
+        navigate("/");
+      } else {
+        navigate("/error");
+      }
+    };
+
+    fetchDeleteApi(memberId);
   };
 
   return (

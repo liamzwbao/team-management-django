@@ -32,3 +32,10 @@ export const fetchUpdateMember = async (member) => {
     body: JSON.stringify(member),
   });
 };
+
+export const fetchDeleteMember = async (id) => {
+  return await fetch(`/api/member/delete/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+};
