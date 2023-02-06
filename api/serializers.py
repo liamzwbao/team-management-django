@@ -29,3 +29,9 @@ class UpdateMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
         fields = ('id', 'first_name', 'last_name', 'email', 'phone', 'role')
+
+
+class DeleteMemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Member
+        fields = ('id',)
