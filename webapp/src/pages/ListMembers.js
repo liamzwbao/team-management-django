@@ -9,11 +9,6 @@ function ListMembers() {
   const navigate = useNavigate();
   const [members, setMembers] = useState([]);
 
-  const requestOptions = {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  };
-
   const fetchApi = async () => {
     const response = await fetchAllMembers();
     if (response.status >= 200 && response.status < 400) {
@@ -25,7 +20,7 @@ function ListMembers() {
   };
 
   useEffect(() => {
-    fetchApi(requestOptions);
+    fetchApi();
   }, []);
 
   return (
