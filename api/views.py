@@ -1,6 +1,6 @@
 from rest_framework import generics
 from .models import Member
-from .serializers import MemberSerializer, GetMemberSerializer, CreateMemberSerializer
+from .serializers import MemberSerializer, GetMemberSerializer, CreateMemberSerializer, UpdateMemberSerializer
 
 
 class MemberView(generics.ListAPIView):
@@ -15,3 +15,8 @@ class GetMemberView(generics.RetrieveAPIView):
 
 class CreateMemberView(generics.CreateAPIView):
     serializer_class = CreateMemberSerializer
+
+
+class UpdateMemberView(generics.UpdateAPIView):
+    queryset = Member.objects.all()
+    serializer_class = UpdateMemberSerializer

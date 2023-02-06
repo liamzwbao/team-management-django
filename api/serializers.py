@@ -23,3 +23,9 @@ class CreateMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
         fields = ('first_name', 'last_name', 'email', 'phone', 'role')
+
+
+class UpdateMemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Member
+        fields = ('id', 'first_name', 'last_name', 'email', 'phone', 'role')
