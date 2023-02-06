@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Button, Container, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchMemberById } from "../apis/Api";
+import { fetchMemberById, fetchUpdateMember } from "../apis/Api";
 
 function UpdateMember() {
   const navigate = useNavigate();
@@ -34,7 +34,28 @@ function UpdateMember() {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    console.log("update");
+    const member = {
+      id: memberId,
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      phone: phone,
+      role: role,
+    };
+    const fetchUpdateApi = async (member) => {
+      const response = await fetchUpdateMember(member);
+      if (response.status >= 200 && response.status < 400) {
+        navigate("/");
+      } else if (response.status === 400) {
+        const data = await response.json();
+        setAlertInfo(data);
+        setShowAlert(true);
+      } else {
+        navigate("/error");
+      }
+    };
+
+    fetchUpdateApi(member);
   };
 
   const handleDelete = (e) => {

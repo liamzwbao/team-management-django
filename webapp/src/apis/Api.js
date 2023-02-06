@@ -9,7 +9,7 @@ export const fetchAllMembers = async () => {
 };
 
 export const fetchMemberById = async (id) => {
-  return await fetch(`../api/member/${id}`, {
+  return await fetch(`/api/member/${id}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
@@ -21,6 +21,14 @@ export const fetchCreateMember = async (member) => {
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify(member),
+  });
+};
+
+export const fetchUpdateMember = async (member) => {
+  return await fetch(`/api/member/update/${member.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(member),
   });
 };
