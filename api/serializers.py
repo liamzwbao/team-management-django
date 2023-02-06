@@ -12,3 +12,9 @@ class MemberSerializer(serializers.ModelSerializer):
 
     def get_role(self, obj):
         return obj.get_role_display()
+
+
+class CreateMemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Member
+        fields = ('first_name', 'last_name', 'email', 'phone', 'role')
