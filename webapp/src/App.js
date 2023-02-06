@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CreateMember from "./CreateMember";
-import ListMembers from "./ListMembers";
-import UpdateMember from "./UpdateMember";
+import CreateMember from "./pages/CreateMember";
+import ListMembers from "./pages/ListMembers";
+import UpdateMember from "./pages/UpdateMember";
 
 function App() {
   return (
