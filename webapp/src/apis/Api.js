@@ -8,6 +8,13 @@ export const fetchAllMembers = async () => {
   });
 };
 
+export const fetchMemberById = async (id) => {
+  return await fetch(`../api/member/${id}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+};
+
 export const fetchCreateMember = async (member) => {
   return await fetch(`/api/member/create`, {
     method: "POST",

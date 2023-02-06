@@ -41,7 +41,7 @@ function CreateMember() {
 
   return (
     <Container>
-      <div className=" text-center">
+      <div className="text-center">
         <h1 className="mb-3">Add a team member</h1>
         <text>Set name, email, phone and role.</text>
       </div>
